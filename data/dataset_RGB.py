@@ -66,7 +66,7 @@ class DataReader(Dataset):
         alpha = 0.2
         lam = np.random.beta(alpha, alpha)
 
-        mixup_inp_img = F.to_tensor(self.degrade(image=transformed['image'])['image'])
+        mixup_inp_img = F.to_tensor(transformed['image'])
         mixup_tar_img = F.to_tensor(transformed['target'])
 
         if mode == 'mixup':
@@ -100,7 +100,7 @@ class DataReader(Dataset):
         tar_path, transformed = self.load(index_)
         
         if self.mode == 'train':
-            inp_img = F.to_tensor(self.degrade(image=transformed['image'])['image'])
+            inp_img = F.to_tensor(transformed['image'])
         else:
             inp_img = F.to_tensor(transformed['image'])
         tar_img = F.to_tensor(transformed['target'])
