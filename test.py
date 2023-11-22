@@ -60,8 +60,7 @@ def test():
         stat_psnr += peak_signal_noise_ratio(res, tar, data_range=1).item()
         stat_ssim += structural_similarity_index_measure(res, tar, data_range=1).item()
         stat_lpips += criterion_lpips(res, tar).item()
-        stat_mae += mean_absolute_error(torch.mul(res, 255).flatten(), torch.mul(tar, 255).flatten(),
-                                        squared=False).item()
+        stat_mae += mean_absolute_error(torch.mul(res, 255).flatten(), torch.mul(tar, 255).flatten()).item()
 
     stat_psnr /= size
     stat_ssim /= size

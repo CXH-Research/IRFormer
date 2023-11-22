@@ -108,7 +108,7 @@ def train():
                 psnr += peak_signal_noise_ratio(res, tar, data_range=1).item()
                 ssim += structural_similarity_index_measure(res, tar, data_range=1).item()
                 lpips += criterion_lpips(res, tar).item()
-                mae += mean_absolute_error(torch.mul(res, 255), torch.mul(tar, 255), squared=False).item()
+                mae += mean_absolute_error(torch.mul(res, 255), torch.mul(tar, 255)).item()
 
             psnr /= size
             ssim /= size
