@@ -59,7 +59,7 @@ def train():
 
     start_epoch = 1
     best_epoch = 1
-    best_psnr = 100
+    best_psnr = 0
 
     size = len(testloader)
 
