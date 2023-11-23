@@ -5,7 +5,6 @@ warnings.filterwarnings('ignore')
 from accelerate import Accelerator
 from torch.utils.data import DataLoader
 from torchmetrics.functional import peak_signal_noise_ratio, structural_similarity_index_measure
-from torchmetrics.image.lpip import LearnedPerceptualImagePatchSimilarity
 from torchmetrics.functional.regression import mean_absolute_error
 from torchvision.utils import save_image
 from tqdm import tqdm
@@ -21,9 +20,6 @@ def test():
     seed_everything(opt.OPTIM.SEED)
 
     accelerator = Accelerator()
-    device = accelerator.device
-
-    criterion_lpips = LearnedPerceptualImagePatchSimilarity(net_type='alex', normalize=True).to(device)
 
     # Data Loader
     val_dir = opt.TRAINING.VAL_DIR
@@ -45,7 +41,6 @@ def test():
     size = len(testloader)
     stat_psnr = 0
     stat_ssim = 0
-    stat_lpips = 0
     stat_mae = 0
     for _, test_data in enumerate(tqdm(testloader)):
         # get the inputs; data is a list of [targets, inputs, filename]
@@ -59,7 +54,6 @@ def test():
 
         stat_psnr += peak_signal_noise_ratio(res, tar, data_range=1).item()
         stat_ssim += structural_similarity_index_measure(res, tar, data_range=1).item()
-        stat_lpips += criterion_lpips(res, tar).item()
         stat_mae += mean_absolute_error(torch.mul(res, 255).flatten(), torch.mul(tar, 255).flatten()).item()
 
     stat_psnr /= size
@@ -67,7 +61,7 @@ def test():
     stat_lpips /= size
     stat_mae /= size
 
-    print("MAE: {}, PSNR: {}, SSIM: {}, LPIPS: {}".format(stat_mae, stat_psnr, stat_ssim, stat_lpips))
+    print("MAE: {}, PSNR: {}, SSIM: {}".format(stat_mae, stat_psnr, stat_ssim))
 
 
 if __name__ == '__main__':
