@@ -19,7 +19,7 @@
   <span class="author-block">
   Mingxian Li
 </span>
-  (📮 Corresponding )
+  (📮 Corresponding Author)
   </div>
 
 <b>Guangdong University of Technology, University of Macau, Huizhou University</b>
