@@ -1,4 +1,4 @@
-### 📋 [Implicit Multi-Spectral Transformer: An Lightweight and Effective Visible to Infrared Image Translation Model](https://arxiv.org/abs/2301.08880)
+### 📋 [Implicit Multi-Spectral Transformer: An Lightweight and Effective Visible to Infrared Image Translation Model](https://arxiv.org/abs/2404.07072)
 
 <div>
 <span class="author-block">
