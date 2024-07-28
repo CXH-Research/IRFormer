@@ -35,7 +35,7 @@ pip install -r requirements.txt
 ```
 
 ### Training
-Please first specify TRAIN_DIR, VAL_DIR and SAVE_DIR in section TRAINING in traning.yml
+Please first specify TRAIN_DIR, VAL_DIR and SAVE_DIR in section TRAINING in config.yml
 
 For single GPU training:
 ```
