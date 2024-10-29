@@ -60,4 +60,17 @@ This work was supported in part by the Guangdong Provincial Key R&D Programme un
 ### 🛎 Citation
 If you find our work helpful for your research, please cite:
 ```bib
+@inproceedings{DBLP:conf/ijcnn/ChenCZLZL24,
+  author       = {Yijia Chen and
+                  Pinghua Chen and
+                  Xiangxin Zhou and
+                  Yingtie Lei and
+                  Ziyang Zhou and
+                  Mingxian Li},
+  title        = {Implicit Multi-Spectral Transformer: An Lightweight and Effective
+                  Visible to Infrared Image Translation Model},
+  booktitle    = {International Joint Conference on Neural Networks},
+  pages        = {1--8},
+  year         = {2024}
+}
 ```
